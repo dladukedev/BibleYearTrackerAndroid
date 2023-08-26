@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#FFFBFE</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/book_bible_solid_splash</item>
+        <item name="postSplashScreenTheme">@style/Theme.BibleYearTracker</item>
+        <item name="windowSplashScreenAnimationDuration">500</item>
+    </style>
+
+    <style name="Theme.BibleYearTracker" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#FFFBFE</item>
+    </style>
+</resources>
