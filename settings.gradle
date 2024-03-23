@@ -14,3 +14,19 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Bible Year Tracker"
 include ':app'
+
+include ':feature:reading'
+include ':feature:settings'
+include ':feature:statistics'
+
+include ':common:ui'
+include ':common:util'
+
+include ':data:plan'
+include ':data:progress'
+
+include ':core:schedule'
+include ':core:statistics'
+include ':core:preferences'
+include ':core:scripture'
+include ':common:models'

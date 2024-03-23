@@ -2,7 +2,7 @@ package com.dladukedev.bibleyeartracker.settings.display
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.ui.test.junit4.createComposeRule
-import com.dladukedev.bibleyeartracker.settings.domain.Theme
+import com.dladukedev.common.models.Theme
 import kotlinx.collections.immutable.persistentListOf
 import org.junit.Assert
 import org.junit.Rule
@@ -19,11 +19,11 @@ class SettingsScreenStateHolderTest {
     @Test
     fun initialContentState() {
         composeTestRule.setContent {
-            val state = rememberSettingScreenStateHolder(
-                state = SettingsScreenViewModel.UIState.Content(
+            val state = com.dladukedev.feature.settings.display.rememberSettingScreenStateHolder(
+                state = com.dladukedev.feature.settings.display.SettingsScreenViewModel.UIState.Content(
                     startDate = LocalDate.of(2000, Month.JANUARY, 1),
                     startDateFormatted = "Jan 01",
-                    theme = Theme.SYSTEM,
+                    theme = com.dladukedev.common.models.Theme.SYSTEM,
                 ),
                 events = persistentListOf(),
                 goBack = {},
@@ -34,12 +34,12 @@ class SettingsScreenStateHolderTest {
                 resetProgress = {},
             )
 
-            Assert.assertTrue(state is SettingScreenState.Content)
-            state as SettingScreenState.Content
+            Assert.assertTrue(state is com.dladukedev.feature.settings.display.SettingScreenState.Content)
+            state as com.dladukedev.feature.settings.display.SettingScreenState.Content
 
             Assert.assertFalse(state.startDatePickerModalState.isShown)
             Assert.assertFalse(state.themePickerDialogState.isShown)
-            Assert.assertEquals(Theme.SYSTEM, state.themePickerState.selectedTheme)
+            Assert.assertEquals(com.dladukedev.common.models.Theme.SYSTEM, state.themePickerState.selectedTheme)
             Assert.assertFalse(state.resetProgressDialogState.isShown)
         }
     }
@@ -48,8 +48,8 @@ class SettingsScreenStateHolderTest {
     @Test
     fun initialLoadingState() {
         composeTestRule.setContent {
-            val state = rememberSettingScreenStateHolder(
-                state = SettingsScreenViewModel.UIState.Loading,
+            val state = com.dladukedev.feature.settings.display.rememberSettingScreenStateHolder(
+                state = com.dladukedev.feature.settings.display.SettingsScreenViewModel.UIState.Loading,
                 events = persistentListOf(),
                 goBack = {},
                 requestGoBack = {},
@@ -59,15 +59,15 @@ class SettingsScreenStateHolderTest {
                 resetProgress = {},
             )
 
-            Assert.assertTrue(state is SettingScreenState.Loading)
+            Assert.assertTrue(state is com.dladukedev.feature.settings.display.SettingScreenState.Loading)
         }
     }
 
     @Test
     fun initialErrorState() {
         composeTestRule.setContent {
-            val state = rememberSettingScreenStateHolder(
-                state = SettingsScreenViewModel.UIState.Error,
+            val state = com.dladukedev.feature.settings.display.rememberSettingScreenStateHolder(
+                state = com.dladukedev.feature.settings.display.SettingsScreenViewModel.UIState.Error,
                 events = persistentListOf(),
                 goBack = {},
                 requestGoBack = {},
@@ -77,61 +77,61 @@ class SettingsScreenStateHolderTest {
                 resetProgress = {},
             )
 
-            Assert.assertTrue(state is SettingScreenState.Error)
+            Assert.assertTrue(state is com.dladukedev.feature.settings.display.SettingScreenState.Error)
         }
     }
 
     @Test
     fun goBackEvent() {
         var goBackCalledCount = 0
-        var handledEvent: SettingsScreenViewModel.Event? = null
+        var handledEvent: com.dladukedev.feature.settings.display.SettingsScreenViewModel.Event? = null
         composeTestRule.setContent {
-            rememberSettingScreenStateHolder(
-                state = SettingsScreenViewModel.UIState.Content(
+            com.dladukedev.feature.settings.display.rememberSettingScreenStateHolder(
+                state = com.dladukedev.feature.settings.display.SettingsScreenViewModel.UIState.Content(
                     startDate = LocalDate.of(2000, Month.JANUARY, 1),
                     startDateFormatted = "Jan 01",
-                    theme = Theme.SYSTEM,
+                    theme = com.dladukedev.common.models.Theme.SYSTEM,
                 ),
-                events = persistentListOf(SettingsScreenViewModel.Event.GoBackRequested),
+                events = persistentListOf(com.dladukedev.feature.settings.display.SettingsScreenViewModel.Event.GoBackRequested),
                 goBack = { goBackCalledCount++ },
                 requestGoBack = {},
                 markEventHandled = { handledEvent = it },
                 updateStartDate = {},
                 updateTheme = {},
                 resetProgress = {},
-            ) as SettingScreenState.Content
+            ) as com.dladukedev.feature.settings.display.SettingScreenState.Content
         }
 
         composeTestRule.runOnIdle {
             Assert.assertEquals(1, goBackCalledCount)
-            Assert.assertEquals(handledEvent, SettingsScreenViewModel.Event.GoBackRequested)
+            Assert.assertEquals(handledEvent, com.dladukedev.feature.settings.display.SettingsScreenViewModel.Event.GoBackRequested)
         }
     }
 
     @Test
     fun progressResetEvent() {
-        var handledEvent: SettingsScreenViewModel.Event? = null
-        lateinit var state: SettingScreenState.Content
+        var handledEvent: com.dladukedev.feature.settings.display.SettingsScreenViewModel.Event? = null
+        lateinit var state: com.dladukedev.feature.settings.display.SettingScreenState.Content
         composeTestRule.setContent {
-            state = rememberSettingScreenStateHolder(
-                state = SettingsScreenViewModel.UIState.Content(
+            state = com.dladukedev.feature.settings.display.rememberSettingScreenStateHolder(
+                state = com.dladukedev.feature.settings.display.SettingsScreenViewModel.UIState.Content(
                     startDate = LocalDate.of(2000, Month.JANUARY, 1),
                     startDateFormatted = "Jan 01",
-                    theme = Theme.SYSTEM,
+                    theme = com.dladukedev.common.models.Theme.SYSTEM,
                 ),
-                events = persistentListOf(SettingsScreenViewModel.Event.ProgressReset),
+                events = persistentListOf(com.dladukedev.feature.settings.display.SettingsScreenViewModel.Event.ProgressReset),
                 goBack = {},
                 requestGoBack = {},
                 markEventHandled = { handledEvent = it },
                 updateStartDate = {},
                 updateTheme = {},
                 resetProgress = {},
-            ) as SettingScreenState.Content
+            ) as com.dladukedev.feature.settings.display.SettingScreenState.Content
         }
 
 
         composeTestRule.runOnIdle {
-            Assert.assertEquals(handledEvent, SettingsScreenViewModel.Event.ProgressReset)
+            Assert.assertEquals(handledEvent, com.dladukedev.feature.settings.display.SettingsScreenViewModel.Event.ProgressReset)
             Assert.assertNotNull(state.snackbarHostState.currentSnackbarData)
         }
     }
@@ -139,13 +139,13 @@ class SettingsScreenStateHolderTest {
     @Test
     fun themeSelectDialogFlows() {
         var updateThemeCalledCount = 0
-        lateinit var state: SettingScreenState.Content
+        lateinit var state: com.dladukedev.feature.settings.display.SettingScreenState.Content
         composeTestRule.setContent {
-            state = rememberSettingScreenStateHolder(
-                state = SettingsScreenViewModel.UIState.Content(
+            state = com.dladukedev.feature.settings.display.rememberSettingScreenStateHolder(
+                state = com.dladukedev.feature.settings.display.SettingsScreenViewModel.UIState.Content(
                     startDate = LocalDate.of(2000, Month.JANUARY, 1),
                     startDateFormatted = "Jan 01",
-                    theme = Theme.SYSTEM,
+                    theme = com.dladukedev.common.models.Theme.SYSTEM,
                 ),
                 events = persistentListOf(),
                 goBack = {},
@@ -154,7 +154,7 @@ class SettingsScreenStateHolderTest {
                 updateStartDate = {},
                 updateTheme = { updateThemeCalledCount++ },
                 resetProgress = {},
-            ) as SettingScreenState.Content
+            ) as com.dladukedev.feature.settings.display.SettingScreenState.Content
         }
 
 
@@ -166,10 +166,10 @@ class SettingsScreenStateHolderTest {
         }
 
         // Pick Dark Mode
-        state.themePickerState.onThemeSelected(Theme.DARK)
+        state.themePickerState.onThemeSelected(com.dladukedev.common.models.Theme.DARK)
 
         composeTestRule.runOnIdle {
-            Assert.assertEquals(Theme.DARK, state.themePickerState.selectedTheme)
+            Assert.assertEquals(com.dladukedev.common.models.Theme.DARK, state.themePickerState.selectedTheme)
         }
 
 
@@ -188,9 +188,9 @@ class SettingsScreenStateHolderTest {
 
         // Open Modal and Select Light Mode
         state.themePickerDialogState.showModal()
-        state.themePickerState.onThemeSelected(Theme.LIGHT)
+        state.themePickerState.onThemeSelected(com.dladukedev.common.models.Theme.LIGHT)
         composeTestRule.runOnIdle {
-            Assert.assertEquals(Theme.LIGHT, state.themePickerState.selectedTheme)
+            Assert.assertEquals(com.dladukedev.common.models.Theme.LIGHT, state.themePickerState.selectedTheme)
         }
 
         composeTestRule.runOnIdle {
@@ -209,20 +209,20 @@ class SettingsScreenStateHolderTest {
         state.themePickerDialogState.showModal()
 
         composeTestRule.runOnIdle {
-            Assert.assertEquals(Theme.SYSTEM, state.themePickerState.selectedTheme)
+            Assert.assertEquals(com.dladukedev.common.models.Theme.SYSTEM, state.themePickerState.selectedTheme)
         }
     }
 
     @Test
     fun resetProgressDialogFlows() {
         var resetProgressCalled = 0
-        lateinit var state: SettingScreenState.Content
+        lateinit var state: com.dladukedev.feature.settings.display.SettingScreenState.Content
         composeTestRule.setContent {
-            state = rememberSettingScreenStateHolder(
-                state = SettingsScreenViewModel.UIState.Content(
+            state = com.dladukedev.feature.settings.display.rememberSettingScreenStateHolder(
+                state = com.dladukedev.feature.settings.display.SettingsScreenViewModel.UIState.Content(
                     startDate = LocalDate.of(2000, Month.JANUARY, 1),
                     startDateFormatted = "Jan 01",
-                    theme = Theme.SYSTEM,
+                    theme = com.dladukedev.common.models.Theme.SYSTEM,
                 ),
                 events = persistentListOf(),
                 goBack = {},
@@ -231,7 +231,7 @@ class SettingsScreenStateHolderTest {
                 updateStartDate = {},
                 updateTheme = {},
                 resetProgress = { resetProgressCalled++ },
-            ) as SettingScreenState.Content
+            ) as com.dladukedev.feature.settings.display.SettingScreenState.Content
         }
 
         // Open Modal
@@ -270,13 +270,13 @@ class SettingsScreenStateHolderTest {
     fun startDatePickerModalFlows() {
         var updateStartDateCallCount = 0
         var updatedDate: LocalDate? = null
-        lateinit var state: SettingScreenState.Content
+        lateinit var state: com.dladukedev.feature.settings.display.SettingScreenState.Content
         composeTestRule.setContent {
-            state = rememberSettingScreenStateHolder(
-                state = SettingsScreenViewModel.UIState.Content(
+            state = com.dladukedev.feature.settings.display.rememberSettingScreenStateHolder(
+                state = com.dladukedev.feature.settings.display.SettingsScreenViewModel.UIState.Content(
                     startDate = LocalDate.of(2000, Month.JANUARY, 1),
                     startDateFormatted = "Jan 01",
-                    theme = Theme.SYSTEM,
+                    theme = com.dladukedev.common.models.Theme.SYSTEM,
                 ),
                 events = persistentListOf(),
                 goBack = {},
@@ -285,7 +285,7 @@ class SettingsScreenStateHolderTest {
                 updateStartDate = { updateStartDateCallCount++; updatedDate = it },
                 updateTheme = {},
                 resetProgress = {},
-            ) as SettingScreenState.Content
+            ) as com.dladukedev.feature.settings.display.SettingScreenState.Content
         }
 
         // Open Modal
