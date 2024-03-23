@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="generic_go_back">Go Back</string>
+
+    <string name="statistics_title">Statistics</string>
+
+    <string name="statistics_overview_card_title">Overview</string>
+    <string name="statistics_overview_card_percentComplete">%.2f%% Complete</string>
+    <string name="statistics_overview_card_daysComplete">%s/%s Days Complete</string>
+    <string name="statistics_overview_card_daysRemaining">%s Day(s) Remaining</string>
+
+    <string name="statistics_overview_card_daysOffTarget_ahead">%s Day(s) Ahead, Great work!</string>
+    <string name="statistics_overview_card_daysOffTarget_behind">%s Day(s) Behind, Time to Catch up!</string>
+    <string name="statistics_overview_card_daysOffTarget_onTarget">0 Day(s) Behind, Right on track!</string>
+
+    <string name="statistics_bibleReadStatus_item_status_unread">Unread</string>
+    <string name="statistics_bibleReadStatus_item_status_inProgress">In Progress</string>
+    <string name="statistics_bibleReadStatus_item_status_read">Read</string>
+
+    <string name="statistics_bibleReadStatus_header_oldTestament">Old Testament (%s/%s)</string>
+    <string name="statistics_bibleReadStatus_header_newTestament">New Testament (%s/%s)</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="generic_update">Update</string>
+    <string name="generic_cancel">Cancel</string>
+    <string name="generic_today">Today</string>
+
+    <string name="reading_list_title">%1$s%% Complete</string>
+    <string name="reading_list_complete_action">Complete</string>
+    <string name="reading_list_complete_title">Congratulations!</string>
+    <string name="reading_list_complete_subtitle">You finished reading the Bible!</string>
+    <string name="reading_list_mark_complete_success_snackbar">Great work! Another set of readings complete!</string>
+    <string name="reading_list_mark_complete_success_snackbar_undo_action">Undo</string>
+    <string name="reading_list_mark_complete_error_snackbar">Something went wrong, the reading wasn\'t marked read</string>
+    <string name="reading_list_undo_mark_complete_success_snackbar">The reading is once again marked unread</string>
+    <string name="reading_list_undo_mark_complete_error_snackbar">Something went wrong, the reading wasn\'t marked unread</string>
+    <string name="reading_list_settings_button_content_description">View Settings</string>
+    <string name="reading_list_return_to_top_button_content_description">Return to Top of List</string>
+
+    <string name="reading_multiple_chapters_content_description">%1$s chapters %2$s through %3$s</string>
+    <string name="reading_partial_chapter_content_description">%1$s chapter %2$s verses %3$s through %4$s</string>
+    <string name="reading_partial_chapters_content_description">%1$s chapter %2$s verse %3$s through chapter %4$s verse %5$s</string>
+    <string name="reading_single_chapter_content_description">%1$s chapter %2$s</string>
+    <string name="reading_whole_book_content_description">%1$s all chapters</string>
+    <string name="reading_complete_content_description">Complete</string>
+
+
+</resources>

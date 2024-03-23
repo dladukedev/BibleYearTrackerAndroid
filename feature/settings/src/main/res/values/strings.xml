@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="generic_update">Update</string>
+    <string name="generic_cancel">Cancel</string>
+    <string name="generic_today">Today</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_goals_section_title">Goals</string>
+    <string name="settings_start_date_item_description">Start Date</string>
+    <string name="settings_appearance_section_title">Appearance</string>
+    <string name="settings_theme_item_description">Theme</string>
+    <string name="settings_theme_system_item">System Default</string>
+    <string name="settings_theme_dark_item">Dark</string>
+    <string name="settings_theme_light_item">Light</string>
+    <string name="settings_theme_dialog_title">Choose theme</string>
+    <string name="settings_advanced_section_title">Advanced</string>
+    <string name="settings_reset_progress_item_description">Reset Progress</string>
+    <string name="settings_reset_progress_dialog_title">Are you sure you want to reset your progress?</string>
+    <string name="settings_reset_progress_dialog_description">This action cannot be undone.</string>
+    <string name="settings_reset_progress_confirm">Reset Progress</string>
+    <string name="settings_reset_progress_success_snackbar">Your progress has been reset</string>
+
+    <string name="settings_go_back_content_description">Go Back</string>
+</resources>

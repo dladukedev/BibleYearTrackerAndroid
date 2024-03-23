@@ -10,5 +10,7 @@
 
     <style name="Theme.BibleYearTracker" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">#1C1B1F</item>
+
+        <item name="android:windowBackground">@color/black</item>
     </style>
 </resources>

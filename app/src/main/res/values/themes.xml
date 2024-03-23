@@ -6,9 +6,12 @@
         <item name="windowSplashScreenAnimatedIcon">@drawable/book_bible_solid_splash</item>
         <item name="postSplashScreenTheme">@style/Theme.BibleYearTracker</item>
         <item name="windowSplashScreenAnimationDuration">500</item>
+
     </style>
 
     <style name="Theme.BibleYearTracker" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">#FFFBFE</item>
+
+        <item name="android:windowBackground">@color/white</item>
     </style>
 </resources>
